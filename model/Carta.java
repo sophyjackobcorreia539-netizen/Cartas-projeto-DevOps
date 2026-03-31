@@ -18,12 +18,28 @@ public class Carta {
     }
 
     public String formatarCarta() {
-        return "ID: " + id +
+        String linha = "═".repeat(50);
+
+        String emoji = switch (tipo) {
+            case "Amor" -> "❤️";
+            case "Amizade" -> "🤝";
+            case "Desculpas" -> "🙏";
+            case "Formal" -> "📄";
+            case "Motivacional" -> "🔥";
+            default -> "✉️";
+        };
+
+        return "\n" + linha +
+                "\n" + emoji + " CARTA #" + id + " " + emoji +
+                "\n" + linha +
                 "\nTipo: " + tipo +
-                "\nRemetente: " + remetente +
-                "\nDestinatário: " + destinatario +
-                "\nConteúdo:\n" + conteudo +
-                "\n=========================\n";
+                "\n\nDe: " + remetente +
+                "\nPara: " + destinatario +
+                "\n" + linha +
+                "\n\n" + conteudo +
+                "\n" + linha +
+                "\n\nCom carinho, \n" + remetente +
+                "\n" + linha + "\n\n";
     }
 
     public String getRemetente() { return remetente; }
