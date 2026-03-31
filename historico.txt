@@ -1,0 +1,10 @@
+ID: 1
+Tipo: Amizade
+Remetente: Ricardo
+Destinatário: Leon 
+Conteúdo:
+Eu gostaria de conversar com o senhor, acredito que à uma tensão entre nós dois, não tenho certeza se o senhor gosta de mim, pois, me evita ao máximo. O senhor gostaria de conversar comigo na lanchonete da empresa para resolver essa situação? aguardo sua resposta.
+
+
+
+=========================
