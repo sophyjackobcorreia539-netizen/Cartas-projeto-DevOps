@@ -1,5 +1,7 @@
 package model;
 
+import util.Cores;
+
 public class Carta {
     private static int contador = 1;
 
@@ -18,7 +20,7 @@ public class Carta {
     }
 
     public String formatarCarta() {
-        String linha = "═".repeat(50);
+        String linha = Cores.AZUL + "=".repeat(50) + Cores.RESET;
 
         String emoji = switch (tipo) {
             case "Amor" -> "❤️";
@@ -30,15 +32,15 @@ public class Carta {
         };
 
         return "\n" + linha +
-                "\n" + emoji + " CARTA #" + id + " " + emoji +
+                "\n" + Cores.NEGRITO + emoji + " CARTA #" + id + emoji + Cores.RESET +
                 "\n" + linha +
-                "\nTipo: " + tipo +
-                "\n\nDe: " + remetente +
-                "\nPara: " + destinatario +
+                "\n" + Cores.AMARELO + "Tipo: " + tipo + Cores.RESET +
+                "\n\n" + Cores.VERDE + "De: " + remetente +
+                "\nPara: " + destinatario + Cores.RESET +
                 "\n" + linha +
                 "\n\n" + conteudo +
                 "\n" + linha +
-                "\n\nCom carinho, \n" + remetente +
+                "\n\n" + Cores.ROXO + "Com carinho,\n" + remetente + Cores.RESET +
                 "\n" + linha + "\n\n";
     }
 
