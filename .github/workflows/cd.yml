@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Clonar repositório
+      - name: Clonar repositório
         uses: actions/checkout@v4
 
-      - name: ☕ Configurar Java
+      - name: Configurar Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -21,7 +21,7 @@ jobs:
       - name: Compilar
         run: javac Main.java
 
-      - name: 📦 Gerar artefato
+      - name: Gerar artefato
         run: |
           mkdir build
           cp *.class build/
