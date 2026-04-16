@@ -18,16 +18,17 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Compilar
-        run: javac Main.java
-
-      - name: Gerar artefato
+      - name: Compilar projeto
         run: |
-          mkdir build
-          cp *.class build/
+          mkdir -p build
+          javac -d build $(find . -name "*.java")
+
+      - name: Gerar JAR
+        run: |
+          jar cf projeto-cartas.jar -C build .
 
       - name: Salvar artefato
         uses: actions/upload-artifact@v4
         with:
           name: projeto-cartas
-          path: build/
+          path: projeto-cartas.jar
