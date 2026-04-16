@@ -21,7 +21,15 @@ jobs:
           java-version: '17'
 
       - name: Compilar projeto
-        run: javac Main.java
+        run: |
+          mkdir -p build
+          javac -d build $(find . -name "*.java")
 
-      - name: Rodar aplicação (teste básico)
-        run: echo "Compilado com sucesso!"
+      - name: Verificar se compilou arquivos
+        run: |
+          if [ -z "$(find build -name '*.class')" ]; then
+            echo "Nenhuma classe gerada!"
+            exit 1
+          else
+            echo "Compilação OK"
+          fi
