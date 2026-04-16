@@ -1,0 +1,27 @@
+name: Discord Alerts
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [closed]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send alert to Discord
+        run: |
+          if [ "${{ github.event_name }}" == "push" ]; then
+            MESSAGE="Novo commit na branch main por ${{ github.actor }}"
+          elif [ "${{ github.event.pull_request.merged }}" == "true" ]; then
+            MESSAGE="PR foi merged na main por ${{ github.actor }}"
+          else
+            exit 0
+          fi
+
+          curl -H "Content-Type: application/json" \
+          -d "{\"content\": \"$MESSAGE\"}" \
+          ${{ secrets.DISCORD_WEBHOOK }}
