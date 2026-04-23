@@ -30,6 +30,6 @@ jobs:
           if [ -z "$(find build -name '*.class')" ]; then
             echo "Nenhuma classe gerada!"
             exit 1
-          else
-            echo "Compilação OK"
-          fi
+
+      - name: Rodar testes
+        run: mvn test
